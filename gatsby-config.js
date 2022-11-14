@@ -1,11 +1,7 @@
+const settings = require("./src/util/site.json")
+
 module.exports = {
-  siteMetadata: {
-    title: "My personal blog",
-    titleTemplate: "%s · Blog",
-    description: "Nostrud est duis proident ut dolore ipsum tempor Lorem.",
-    author: "danilowoz",
-    twitterUsername: "@danilowoz",
-  },
+  siteMetadata: settings.meta,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

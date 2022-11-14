@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "My personal blog",
+    "titleTemplate": "%s · Blog",
+    "author": {
+      "name": "danilowoz",
+      "summary": "who lives and works in San Francisco building useful things.",
+      "profile": "../src/images/profile-pic.png"
+    },
+    "description": "Nostrud est duis proident ut dolore ipsum tempor Lorem.",
+    "siteUrl": "https://gatsbystarterblogsource.gatsbyjs.io/",
+    "social": {
+      "github": "",
+      "gmail": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  }
+}
