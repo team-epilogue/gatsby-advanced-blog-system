@@ -36,13 +36,13 @@ const renderList = ({ node }) => {
 
             <S.DateText>{formatDate(node.frontmatter.date)}</S.DateText>
 
-            <S.Category>
+            <S.Tags>
               {node.frontmatter.tags.map((cat, index, arr) => (
                 <ConcatWords arrCount={arr.length} index={index} key={cat}>
                   <Link to={`/blog/tags/${kebabCase(cat)}`}>{cat}</Link>
                 </ConcatWords>
               ))}
-            </S.Category>
+            </S.Tags>
           </Cell>
         </Row>
       </S.Article>

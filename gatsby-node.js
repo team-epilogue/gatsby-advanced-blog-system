@@ -7,7 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogLayout = path.resolve(`./src/layouts/blog-post.js`)
   const blogListLayout = path.resolve(`./src/layouts/blog-list.js`)
-  const blogCategoryLayout = path.resolve(`./src/layouts/blog-category.js`)
+  const blogTagsLayout = path.resolve(`./src/layouts/blog-tags.js`)
   const blogAuthorLayout = path.resolve(`./src/layouts/blog-author.js`)
 
   return graphql(`
@@ -49,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
       return !node.frontmatter.featured
     })
     const numPages = Math.ceil(postsWithoutFeatured.length / postsPerPage)
-    const categories = []
+    const tagList = []
     const authors = []
 
     // Creating blog list with pagination
@@ -68,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Creating blog posts
     posts.forEach((post, index, arr) => {
-      post.node.frontmatter.tags.forEach((cat) => categories.push(cat))
+      post.node.frontmatter.tags.forEach((cat) => tagList.push(cat))
       authors.push(post.node.frontmatter.author)
 
       const prev = arr[index - 1]
@@ -85,29 +85,29 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    // Creating category page
-    const countCategories = categories.reduce((prev, curr) => {
+    // Creating tags page
+    const countTagList = tagList.reduce((prev, curr) => {
       prev[curr] = (prev[curr] || 0) + 1
       return prev
     }, {})
-    const allCategories = Object.keys(countCategories)
+    const allTagList = Object.keys(countTagList)
 
-    allCategories.forEach((cat, i) => {
+    allTagList.forEach((cat, i) => {
       const link = `/blog/tags/${kebabCase(cat)}`
 
       Array.from({
-        length: Math.ceil(countCategories[cat] / postsPerPage),
+        length: Math.ceil(countTagList[cat] / postsPerPage),
       }).forEach((_, i) => {
         createPage({
           path: i === 0 ? link : `${link}/page/${i + 1}`,
-          component: blogCategoryLayout,
+          component: blogTagsLayout,
           context: {
-            allCategories: allCategories,
+            allTagList: allTagList,
             tags: cat,
             limit: postsPerPage,
             skip: i * postsPerPage,
             currentPage: i + 1,
-            numPages: Math.ceil(countCategories[cat] / postsPerPage),
+            numPages: Math.ceil(countTagList[cat] / postsPerPage),
           },
         })
       })

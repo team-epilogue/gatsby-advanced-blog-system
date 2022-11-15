@@ -50,7 +50,7 @@ export const DateText = styled.p`
   }
 `
 
-export const Category = styled.p`
+export const Tags = styled.p`
   ${infoStyles}
   text-align: right;
   text-transform: uppercase;

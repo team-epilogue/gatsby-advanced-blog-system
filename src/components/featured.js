@@ -43,13 +43,13 @@ const BlogFeatured = () => {
               {formatDate(markdownRemark.frontmatter.date)}
             </S.DateText>
 
-            <S.Category>
+            <S.Tags>
               {markdownRemark.frontmatter.tags.map((cat, index, arr) => (
                 <ConcatWords arrCount={arr.length} index={index} key={cat}>
                   <Link to={`/blog/tags/${kebabCase(cat)}`}>{cat}</Link>
                 </ConcatWords>
               ))}
-            </S.Category>
+            </S.Tags>
           </S.FeaturedInfos>
         </Row>
       </Cell>
