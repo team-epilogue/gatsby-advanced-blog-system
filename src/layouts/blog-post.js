@@ -35,9 +35,9 @@ const BlogPost = ({ data, pageContext }) => {
         <S.DateText>{formatDate(markdownRemark.frontmatter.date)}</S.DateText>
 
         <S.Category>
-          {markdownRemark.frontmatter.category.map((cat, index, arr) => (
+          {markdownRemark.frontmatter.tags.map((cat, index, arr) => (
             <ConcatWords arrCount={arr.length} index={index} key={cat}>
-              <Link to={`/blog/category/${kebabCase(cat)}`}>{cat}</Link>
+              <Link to={`/blog/tags/${kebabCase(cat)}`}>{cat}</Link>
             </ConcatWords>
           ))}
         </S.Category>
@@ -88,7 +88,7 @@ export const query = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         author
-        category
+        tags
         image {
           childImageSharp {
             fluid {

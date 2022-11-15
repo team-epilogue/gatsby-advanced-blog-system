@@ -37,9 +37,9 @@ const renderList = ({ node }) => {
             <S.DateText>{formatDate(node.frontmatter.date)}</S.DateText>
 
             <S.Category>
-              {node.frontmatter.category.map((cat, index, arr) => (
+              {node.frontmatter.tags.map((cat, index, arr) => (
                 <ConcatWords arrCount={arr.length} index={index} key={cat}>
-                  <Link to={`/blog/category/${kebabCase(cat)}`}>{cat}</Link>
+                  <Link to={`/blog/tags/${kebabCase(cat)}`}>{cat}</Link>
                 </ConcatWords>
               ))}
             </S.Category>

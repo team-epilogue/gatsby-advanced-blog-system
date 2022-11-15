@@ -22,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
               title
               date
               author
-              category
+              tags
               featured
               image {
                 childImageSharp {
@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       console.error(result.errors)
       reject(result.errors)
@@ -68,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Creating blog posts
     posts.forEach((post, index, arr) => {
-      post.node.frontmatter.category.forEach(cat => categories.push(cat))
+      post.node.frontmatter.tags.forEach((cat) => categories.push(cat))
       authors.push(post.node.frontmatter.author)
 
       const prev = arr[index - 1]
@@ -93,7 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
     const allCategories = Object.keys(countCategories)
 
     allCategories.forEach((cat, i) => {
-      const link = `/blog/category/${kebabCase(cat)}`
+      const link = `/blog/tags/${kebabCase(cat)}`
 
       Array.from({
         length: Math.ceil(countCategories[cat] / postsPerPage),
@@ -103,7 +103,7 @@ exports.createPages = ({ graphql, actions }) => {
           component: blogCategoryLayout,
           context: {
             allCategories: allCategories,
-            category: cat,
+            tags: cat,
             limit: postsPerPage,
             skip: i * postsPerPage,
             currentPage: i + 1,

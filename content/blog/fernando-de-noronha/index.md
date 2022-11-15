@@ -4,7 +4,7 @@ date: 2018-01-10
 author: touropia.com
 featured: false
 image: ./fernando_de_noronha.jpg
-category:
+tags:
   - Pernanbuco
   - Nordeste
   - Favorite

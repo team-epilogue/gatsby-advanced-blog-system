@@ -4,7 +4,7 @@ date: 2018-01-09
 author: touropia.com
 featured: false
 image: ./ilha_grande.jpg
-category:
+tags:
   - Rio de Janeiro
   - Sudeste
 ---

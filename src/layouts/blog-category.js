@@ -12,11 +12,11 @@ import renderList from "../components/renderList"
 
 const BlogCategory = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
-  const { currentPage, numPages, category, allCategories } = pageContext
+  const { currentPage, numPages, tags, allCategories } = pageContext
 
   return (
     <Layout>
-      <Seo title={category} />
+      <Seo title={tags} />
 
       <Container>
         <Row>
@@ -24,7 +24,7 @@ const BlogCategory = ({ data, pageContext }) => {
             <S.HeaderSectionTitle>Categories:</S.HeaderSectionTitle>
             <S.HeaderSectionList>
               {allCategories.map((cat) => (
-                <S.HeaderSectionLink to={`/blog/category/${kebabCase(cat)}`}>
+                <S.HeaderSectionLink to={`/blog/tags/${kebabCase(cat)}`}>
                   {cat}
                 </S.HeaderSectionLink>
               ))}
@@ -37,7 +37,7 @@ const BlogCategory = ({ data, pageContext }) => {
         <Pagination
           currentPage={currentPage}
           numPages={numPages}
-          contextPage={`category/${kebabCase(category)}`}
+          contextPage={`tags/${kebabCase(tags)}`}
         />
       </Container>
     </Layout>
@@ -47,10 +47,10 @@ const BlogCategory = ({ data, pageContext }) => {
 export default BlogCategory
 
 export const query = graphql`
-  query blogPostsListByCategory($category: String, $skip: Int!, $limit: Int!) {
+  query blogPostsListByCategory($tags: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { category: { in: [$category] } } }
+      filter: { frontmatter: { tags: { in: [$tags] } } }
       limit: $limit
       skip: $skip
     ) {
@@ -63,7 +63,7 @@ export const query = graphql`
             title
             date
             author
-            category
+            tags
             image {
               childImageSharp {
                 fluid {

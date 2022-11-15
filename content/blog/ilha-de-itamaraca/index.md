@@ -4,7 +4,7 @@ date: 2018-01-04
 author: touropia.com
 featured: false
 image: ./ilha_de_itamaraca.jpg
-category:
+tags:
   - Pernambuco
   - Nordeste
 ---

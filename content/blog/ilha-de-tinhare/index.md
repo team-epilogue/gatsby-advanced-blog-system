@@ -4,7 +4,7 @@ date: 2018-01-08
 author: touropia.com
 featured: false
 image: ./ilha_de_tinhare.jpg
-category:
+tags:
   - São Paulo
   - Sudeste
 ---

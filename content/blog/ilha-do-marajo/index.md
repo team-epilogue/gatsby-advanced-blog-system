@@ -4,7 +4,7 @@ date: 2018-01-02
 author: touropia.com
 featured: false
 image: ./ilha_do_marajo.jpg
-category:
+tags:
   - Pará
   - Norte
 ---

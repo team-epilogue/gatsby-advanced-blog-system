@@ -4,7 +4,7 @@ date: 2018-01-05
 author: touropia.com
 featured: false
 image: ./ilha_do_mel.jpg
-category:
+tags:
   - Paraná
   - Sul
 ---

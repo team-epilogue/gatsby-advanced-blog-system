@@ -4,7 +4,7 @@ date: 2018-01-06
 author: touropia.com
 featured: false
 image: ./ilhabela.jpg
-category:
+tags:
   - São Paulo
   - Sudeste
 ---

@@ -4,7 +4,7 @@ date: 2018-01-07
 author: touropia.com
 featured: true
 image: ./ilha_de_santa_catarina.jpg
-category:
+tags:
   - Santa Catarina
   - Sul
   - Favorite

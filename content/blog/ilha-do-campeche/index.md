@@ -4,7 +4,7 @@ date: 2018-01-03
 author: touropia.com
 featured: false
 image: ./ilha_do_campeche.jpg
-category:
+tags:
   - Santa Catarina
   - Sul
 ---

@@ -63,7 +63,7 @@ export const query = graphql`
             title
             date
             author
-            category
+            tags
             image {
               childImageSharp {
                 fluid {

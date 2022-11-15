@@ -4,7 +4,7 @@ date: 2018-01-01
 author: touropia.com
 featured: false
 image: ./ilha_do_cardoso.jpg
-category:
+tags:
   - São Paulo
   - Sudeste
 ---
