@@ -1,5 +1,5 @@
 ---
-author: touropia.com
+author: githubId
 featured: true
 selectedImage: ./ilha_de_santa_catarina.jpg
 title: Florianópolis
