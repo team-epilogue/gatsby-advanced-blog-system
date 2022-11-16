@@ -45,7 +45,7 @@ export const query = graphql`
             date
             author
             tags
-            image {
+            selectedImage {
               childImageSharp {
                 fluid {
                   src

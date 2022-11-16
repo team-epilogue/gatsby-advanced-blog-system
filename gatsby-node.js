@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
               author
               tags
               featured
-              image {
+              selectedImage {
                 childImageSharp {
                   fluid {
                     src

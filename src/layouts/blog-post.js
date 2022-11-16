@@ -13,8 +13,70 @@ import formatDate from "../utils/formatDate"
 const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark } = data
   const { prev, next } = pageContext
-  const imageSource = markdownRemark.frontmatter.image.childImageSharp.fluid.src
+  const imageSource = markdownRemark.frontmatter.selectedImage ?
+    markdownRemark.frontmatter.selectedImage.childImageSharp.fluid.src : ""
 
+  if (imageSource === "") {
+    return (
+      <Layout>
+        <Seo title={markdownRemark.frontmatter.title} />
+        <Container>
+          <S.Author>
+            By{" "}
+            <Link
+              to={`/blog/author/${kebabCase(markdownRemark.frontmatter.author)}`}
+            >
+              {markdownRemark.frontmatter.author}
+            </Link>
+          </S.Author>
+  
+          <S.Title>{markdownRemark.frontmatter.title}</S.Title>
+          <S.DateText>{formatDate(markdownRemark.frontmatter.date)}</S.DateText>
+  
+          <S.Tags>
+            {markdownRemark.frontmatter.tags.map((cat, index, arr) => (
+              <ConcatWords arrCount={arr.length} index={index} key={cat}>
+                <Link to={`/blog/tags/${kebabCase(cat)}`}>{cat}</Link>
+              </ConcatWords>
+            ))}
+          </S.Tags>
+  
+          <S.BlogContent
+            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+          />
+  
+          <Row>
+            {prev && (
+              <Cell xs={6}>
+                <Link to={prev.node.fields.slug}>
+                  <S.NavigationPost>
+                    <div>
+                      {" "}
+                      {"<"} {prev.node.frontmatter.title}
+                    </div>
+                  </S.NavigationPost>
+                </Link>
+              </Cell>
+            )}
+  
+            {next && (
+              <Cell xs={6}>
+                <Link to={next.node.fields.slug}>
+                  <S.NavigationPost>
+                    <div>
+                      {" "}
+                      {next.node.frontmatter.title} {">"}
+                    </div>
+                  </S.NavigationPost>
+                </Link>
+              </Cell>
+            )}
+          </Row>
+        </Container>
+      </Layout>
+    )
+  }
+  
   return (
     <Layout>
       <Seo title={markdownRemark.frontmatter.title} />
@@ -89,7 +151,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         author
         tags
-        image {
+        selectedImage {
           childImageSharp {
             fluid {
               src

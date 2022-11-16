@@ -9,7 +9,7 @@ import formatDate from "../utils/formatDate"
 
 const BlogFeatured = () => {
   const { markdownRemark } = useStaticQuery(query)
-  const imageSource = markdownRemark.frontmatter.image.childImageSharp.fluid.src
+  const imageSource = markdownRemark.frontmatter.selectedImage.childImageSharp.fluid.src
 
   return (
     <Row>
@@ -71,7 +71,7 @@ const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         author
         tags
-        image {
+        selectedImage {
           childImageSharp {
             fluid {
               src
