@@ -1,7 +1,7 @@
 ---
 template: blog-post
 templateKey: blog-post
-slug: /1667910911415
+slug: /blog/1667910911415
 featuredImage: /assets/post-image.png
 featuredimage: /assets/post-image.png
 author: githubId
