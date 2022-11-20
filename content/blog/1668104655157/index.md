@@ -3,7 +3,7 @@ author: githubId
 featured: true
 selectedImage: ./ilha_de_santa_catarina.jpg
 title: Florianópolis
-tags: [Santa Catarina, Sul, Favorite]
+tags: [Sul,Favorite]
 description: This island offers a lot of variety in a relatively small space.
 category: hello
 date: 2022-11-11T03:24:15.157Z
